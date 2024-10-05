@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 :root {
-	--primary-color: #185ee0;
+	--primary-color: #fff;
 	--secondary-color: #e6eef9;
 }
 
@@ -11,59 +11,52 @@
 	box-sizing: border-box;
 }
 
+/* BODY */
 body {
 	font-family: "Inter", sans-serif;
 	background-color: rgba(#e6eef9, 0.5);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('./pictures/SpaceBackground.jpg');
+    background-size: cover; /* Make sure the image covers the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling of the image */
+    background-attachment: fixed; /* Makes the background stay fixed while scrolling */
 }
+img {
+    display: none; /* Hides all image elements */
+}
+
+/* TITLE */
+.titleContainer {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Center horizontally */
+    width: 100%; /* Ensure it spans the full width of the page */
+}
+
+label {
+    color:#fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between label and tabs */
+    text-align: center; /* Center the text within the label */
+}
+
+/* SWITCH LUNAR AND MARS */
 .container {
 	position: absolute;
 	left: 0;
-	top: 0;
+    top: -500px;
 	right: 0;
 	bottom: 0;
 	display: flex;
-	align-items: center;
+    align-items: center;
 	justify-content: center;
-}
-.tabs {
-	display: flex;
-	position: relative;
-	background-color: #fff;
-	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
-	padding: 0.75rem;
-	border-radius: 99px;
-	* {
-		z-index: 2;
-	}
 }
 
 input[type="radio"] {
 	display: none;
-}
-
-.tab {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 54px;
-	width: 200px;
-	font-size: 1.25rem;
-	font-weight: 500;
-	border-radius: 99px;
-	cursor: pointer;
-	transition: color 0.15s ease-in;
-}
-
-.notification {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	margin-left: 0.75rem;
-	border-radius: 50%;
-	background-color: var(--secondary-color);
-	transition: 0.15s ease-in;
 }
 
 input[type="radio"] {
@@ -78,7 +71,7 @@ input[type="radio"] {
 	}
 }
 
-input[id="radio-1"] {
+input[id="radioLunar"] {
 	&:checked {
 		& ~ .glider {
 			transform: translateX(0);
@@ -86,7 +79,7 @@ input[id="radio-1"] {
 	}
 }
 
-input[id="radio-2"] {
+input[id="radioMars"] {
 	&:checked {
 		& ~ .glider {
 			transform: translateX(100%);
@@ -94,12 +87,39 @@ input[id="radio-2"] {
 	}
 }
 
-input[id="radio-3"] {
-	&:checked {
-		& ~ .glider {
-			transform: translateX(200%);
-		}
+.tabs {
+	display: flex;
+	position: relative;
+	background-color: transparent; /* Set the tab container background to transparent */
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px;
+	* {
+		z-index: 2;
 	}
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+    width: 200px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    background-color: rgba(88, 88, 88, 0.5); /* Default dark gray with transparency */
+    transition: background-color 0.15s ease-in, opacity 0.15s ease-in; /* Transition for background and opacity */
+}
+
+.tab:hover {
+    opacity: 0.7; /* Adjust transparency on hover */
+    background-color: #696969;
+}
+
+input[type="radio"]:checked + .tab:hover {
+    opacity: 0.5; /* Keep the checked tab semi-transparent on hover */
 }
 
 .glider {
@@ -107,10 +127,18 @@ input[id="radio-3"] {
 	display: flex;
 	height: 54px;
 	width: 200px;
-	background-color: var(--secondary-color);
+	background-color: rgba(230, 238, 249, 0.5); /* Adjust transparency here */
 	z-index: 1;
 	border-radius: 99px;
 	transition: 0.25s ease-out;
+}
+
+.tab:hover .glider {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Darker shadow effect on glider */
+}
+
+input[type="radio"] {
+	display: none;
 }
 
 @media (max-width: 700px) {
