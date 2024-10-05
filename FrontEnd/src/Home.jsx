@@ -14,7 +14,7 @@ function Home() {
         <div>
             <img className="BackgroundImg" src={"./pictures/SpaceBackground.jpg"}></img>
             <div className="titleContainer">
-            <label>Seismic Detection Across the Solar System</label>
+                <label>Seismic Detection Across the Solar System</label>
             </div>
             <div className="container">
                 <div className="tabs" onChange={handleChange}>

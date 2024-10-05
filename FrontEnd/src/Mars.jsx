@@ -12,11 +12,7 @@ const MarsPage = () => {
     return (
         <div>
             <div style={{ cursor: "pointer" }}>
-                <img className="gif"src={MyGif} alt="Image of Mars Turning" style={{transform: "scaleX(-1)"}}
-                />
-            </div>
-            <div style={{ marginTop: "20px", textAlign: "center" }}>
-                <button onClick={handleOnClick}> Explore: </button>
+                <img className="gif"src={MyGif} alt="Image of Mars Turning" onClick={handleOnClick}/>
             </div>
         </div>
     );
