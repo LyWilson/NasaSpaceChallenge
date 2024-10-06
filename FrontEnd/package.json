@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "bulma": "^0.9.4",
+    "date-fns": "^4.1.0",
     "font-awesome": "^4.7.0",
     "react": "^18.2.0",
+    "react-datepicker": "^7.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.26.2"
   },
