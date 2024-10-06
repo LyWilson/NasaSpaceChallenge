@@ -11,7 +11,7 @@ function App() {
 
     return (
         <div>
-            <Router>
+            <Router basename="/NasaSpaceChallenge">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/mars" element={<MarsPage />} />
