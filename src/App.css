@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+	--primary-color: #fff;
+	--secondary-color: #e6eef9;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* BODY */
+
+
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: rgba(230, 238, 249, 0.5);
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensure body takes up full viewport height */
+    width: 100vw; /* Ensure body takes up full viewport width */
+    background-image: url('./pictures/SpaceBackground4.gif');
+    background-size: cover; /* Make sure the background image covers the entire body */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.BackgroundImg {
+    display: none; /* Hides all image elements */
+}
+
+/* TITLE */
+.titleContainer {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Center horizontally */
+    width: 100%; /* Ensure it spans the full width of the page */
+    margin-bottom: 40px; /* Space between title and the rest of the content */
+}
+
+label {
+    color:#fff;
+    font-size: 7.5vh;
+    font-weight: bold;
+    text-align: center; /* Center the text within the label */
+}
+
+/* SWITCH LUNAR AND MARS */
+.container {
+    position: absolute; /* Fix position relative to the body or parent */
+    top: 15%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"] {
+	&:checked {
+		& + label {
+			color: var(--primary-color);
+			& > .notification {
+				background-color: var(--primary-color);
+				color: #fff;
+			}
+		}
+	}
+}
+
+input[id="radioLunar"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(0);
+		}
+	}
+}
+
+input[id="radioMars"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(100%);
+		}
+	}
+}
+
+.content {
+    text-align: center; /* Centers the content */
+    color: #333; /* Change text color as needed */
+    border-radius: 10px; /* Rounded corners for a softer look */
+}
+
+.tabs {
+	display: flex;
+	position: relative;
+	background-color: transparent; /* Set the tab container background to transparent */
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px;
+	* {
+		z-index: 2;
+	}
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7.5vh; /* Responsive height based on viewport height */
+    width: 13vw; /* Responsive width based on viewport width */
+    font-size: 1.5vw; /* Font size changes based on viewport width */
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    background-color: rgba(88, 88, 88, 0.5); /* Default dark gray with transparency */
+    transition: background-color 0.15s ease-in, opacity 0.15s ease-in; /* Transition for background and opacity */
+}
+
+.tab:hover {
+    opacity: 0.7; /* Adjust transparency on hover */
+    background-color: #696969;
+}
+
+input[type="radio"]:checked + .tab:hover {
+    opacity: 0.5; /* Keep the checked tab semi-transparent on hover */
+}
+
+.glider {
+	position: absolute;
+	display: flex;
+	height: 7.5vh; /* Responsive height based on viewport height */
+    width: 13vw; /* Responsive width based on viewport width */
+	background-color: rgba(230, 238, 249, 0.5); /* Adjust transparency here */
+	z-index: 1;
+	border-radius: 99px;
+	transition: 0.25s ease-out;
+}
+
+.tab:hover .glider {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Darker shadow effect on glider */
+}
+
+/* GIF */
+
+.gif {
+    width: 50vh; /* Using viewport height to make it responsive */
+    height: 50vh; /* Set height relative to viewport height for consistency */
+    display: flex;
+    position: absolute; /* Absolute positioning for better control */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    max-width: 100%;
+    max-height: 100%;
+}
