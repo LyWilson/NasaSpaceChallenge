@@ -24,7 +24,7 @@
     padding: 20px;
     background-color: #2b2b2b;
     border-radius: 8px;
-    color: #fff;
+    color: lightskyblue;
 }
 
 /* Calendar container styling */
@@ -32,13 +32,13 @@
     padding: 20px;
     background-color: #1f1f1f;
     border-radius: 8px;
-    color: #fff;
+    color: lightskyblue;
 }
 
 /* Selected date styling */
 .selectedDateContainer {
     margin-top: 20px;
-    color: #fff;
+    color: lightskyblue;
 }
 
 /* Label styling */
@@ -56,11 +56,11 @@
     border: 1px solid #444;
     border-radius: 10px;
     background-color: #333;
-    color: #e6e6e6;
+    color: lightskyblue;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Additional DatePicker styling */
+/* DatePicker header and day styling */
 .react-datepicker__month-container {
     background-color: #2b2b2b;
 }
@@ -73,12 +73,12 @@
 
 .react-datepicker__current-month {
     font-size: 1.5rem;
-    color: #fff;
+    color: lightskyblue;
 }
 
 .react-datepicker__day-name,
 .react-datepicker__day {
-    color: #fff;
+    color: lightskyblue;
 }
 
 .react-datepicker__day--outside-month {
@@ -88,28 +88,37 @@
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
     background-color: #bf4bce;
-    color: #fff;
+    color: lightskyblue;
 }
 
 .react-datepicker__navigation-icon::before {
-    border-color: #fff;
+    border-color: lightskyblue;
 }
 
+/* Custom Time Select */
 .react-datepicker__time-container {
     background-color: #2b2b2b;
-    color: #fff;
+    color: lightskyblue;
+}
+
+.react-datepicker__time-box {
+    background-color: #2b2b2b;
+}
+
+.react-datepicker__time-list-item {
+    padding: 10px;
+    font-size: 1.1rem;
+    color: lightskyblue;
+    background-color: #333; /* Dark background for time list items */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.react-datepicker__time-list-item:hover {
+    background-color: #555; 
+    color: lightskyblue;
 }
 
 .react-datepicker__time-list-item--selected {
     background-color: #bf4bce;
-    color: #fff;
-}
-
-/* Gif styling */
-.gif {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    
+    color: lightskyblue;
 }

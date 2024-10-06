@@ -24,16 +24,35 @@ const MoonDetails = () => {
                     <h1>
                         <FontAwesomeIcon icon={faGlobe} /> Moon
                     </h1>
+                    <b> The Moon </b>
                     <p>
                         <FontAwesomeIcon icon={faFileAlt} /> 
-                        The moon is a piece of rock that floats around the earth. 
-                        It controls the sea by making higher and lower a certain time frame.
+                        The Moon is Earth's only natural satellite, 
+                        formed around 4.5 billion years ago, likely 
+                        due to a massive collision between Earth and 
+                        a Mars-sized body, often called Theia. The Moon 
+                        is roughly one-quarter the size of Earth and 
+                        has a surface area comparable to the size of Africa. 
+                        It orbits Earth at an average distance of about 384,400 km, 
+                        and is tidally locked, meaning the same side always faces Earth.
+                    </p>
+                    <b> Orbital Speed</b>
+                    <p>
+                        The Moon moves around Earth at an average orbital 
+                        speed of 1.022 km/s (or 3,683 km/h), completing one orbit 
+                        in about 27.3 days. Its rotational period matches its orbital 
+                        period, which is why we only see one side of the Moon from Earth.
+                    </p>
+                    <b> Particularities </b>
+                    <p>
+                        Moonquakes: Seismic activity on the Moon, known as moonquakes, was 
+                        first detected by seismometers placed by the Apollo missions. These 
+                        quakes are much weaker than earthquakes, but they can last for up to 
+                        an hour due to the Moon’s lack of water and its rigid structure, which
+                         allows seismic waves to travel longer distances without being absorbed. 
                     </p>
                 </div>
-                {/* Gif Section */}
-                <div>
-                    <img className="gif" src={MyGif} alt="Image of Moon Turning" />
-                </div>
+        
                 {/* Calendar Section */}
                 <div className="calendarContainer">
                     <h3 className="label">Select a Date and Time</h3>
