@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // Import the CSS for the date picker
 import { format } from "date-fns";
-import './Details.css'; // Custom styles for the calendar
+import "./Details.css"; // Custom styles for the calendar
 
 const MarsDetails = () => {
     const [selectedDate, setSelectedDate] = useState(null); // Manage selected date state
@@ -19,7 +19,7 @@ const MarsDetails = () => {
                 <h1>Mars</h1>
                 <p>
                     Mars is the 5th planet in our solar system. It is pretty similar to Earth, the world we live in.
-                    In recent research, there have been signs that Mars once had a system similar to Earth's.
+                    In recent research, there have been signs that Mars once had a system similar to Earth&apos;s.
                 </p>
             </div>
 
