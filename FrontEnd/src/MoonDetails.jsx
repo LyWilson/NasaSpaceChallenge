@@ -5,15 +5,45 @@ import { format } from "date-fns";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faFileAlt } from '@fortawesome/free-solid-svg-icons'; // Import icons
 import './Details.css'; // Custom styles for the calendar
-import MyGif from "./pictures/moon_gif.gif";
 
 const MoonDetails = () => {
     const [selectedDate, setSelectedDate] = useState(null); // Manage selected date state
+    const [image, setImage] = useState("No_Data.png")
+    const dataDirectory = "../public/moonPlot/";
 
     // Handle the date change
     const handleDateChange = (date) => {
+        if (date) {
+            // Format the date to 'yyyy-MM-dd'
+            const formattedDate = format(date, "yyyy-MM-dd");
+            console.log("Formatted Date:", formattedDate); // Display the formatted date
+            sendDateToBackend(formattedDate);
+        }
         setSelectedDate(date);
+        sendDateToBackend(date);
     };
+
+    const sendDateToBackend = (date) => {
+        if (date) {
+            
+            // Simulate fetching from a pre-defined list (ideally, this should come from a server)
+            const dataDirectory = "/moonPlot/";
+            const files = ["2024-10-06_image1.png", "2024-10-06_image2.png"]; // Replace with actual logic
+
+            const matchingFiles = files.filter(file => file.includes(date));
+            console.log(matchingFiles)
+            if (matchingFiles.length === 0) {
+                console.log("No files found for the specified date:", date);
+                setImage("No_Data.png"); // Reset image if no files found
+                return;
+            }
+
+            console.log("Matching files:", matchingFiles);
+            // Set the image to the first matching file name
+            setImage(`${dataDirectory}${matchingFiles[0]}`);
+        }
+    };
+
 
     return (
         <div className="pageContainer">
@@ -76,7 +106,9 @@ const MoonDetails = () => {
                 </div>
             </div>
             {/* Empty Right Section */}
-            <div className="rightContainer"></div>
+            <div className="rightContainer">
+                <img src={dataDirectory + image} style={{width: "100%", height: "100%"}}></img>
+            </div>
         </div>
     );
 };
