@@ -14,6 +14,9 @@
 }
 
 /* BODY */
+
+
+
 body {
     font-family: "Inter", sans-serif;
     background-color: rgba(230, 238, 249, 0.5);
@@ -21,7 +24,7 @@ body {
     padding: 0;
     height: 100vh; /* Ensure body takes up full viewport height */
     width: 100vw; /* Ensure body takes up full viewport width */
-    background-image: url('./pictures/SpaceBackground.jpg');
+    background-image: url('./pictures/SpaceBackground4.gif');
     background-size: cover; /* Make sure the background image covers the entire body */
     background-position: center;
     background-repeat: no-repeat;
