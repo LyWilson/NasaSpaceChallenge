@@ -10,7 +10,7 @@ import "./Details.css";
 const MarsDetails = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [image, setImage] = useState("No_Data.png")
-    const dataDirectory = "../marsPlot/";
+    const dataDirectory = "marsPlot/";
 
     const handleDateChange = (date) => {
         if (date) {
