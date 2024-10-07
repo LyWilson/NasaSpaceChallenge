@@ -12,7 +12,7 @@ const MoonPage = () => {
     return(
         <div>
             <div>
-                <img className="gif" src={MyGif} alt="Image of Moon Turning" onClick={handleOnClick}/>
+                <img className="gifMoon" src={MyGif} alt="Image of Moon Turning" onClick={handleOnClick}/>
             </div>
         </div>
     )

@@ -1,26 +1,29 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css"; // Import the CSS for the date picker
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faFileAlt } from "@fortawesome/free-solid-svg-icons";
-import "./Details.css";
+import { faGlobe, faFileAlt } from "@fortawesome/free-solid-svg-icons"; // Import icons
+import "./Details.css"; // Custom styles for the calendar
 
 const MoonDetails = () => {
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(null); // Manage selected date state
     const [image, setImage] = useState("No_Data.png")
     const dataDirectory = "moonPlot/";
 
+    // Handle the date change
     const handleDateChange = (date) => {
         if (date) {
+            // Format the date to 'yyyy-MM-dd'
             const formattedDate = format(date, "yyyy-MM-dd");
-            console.log("Formatted Date:", formattedDate);
+            console.log("Formatted Date:", formattedDate); // Display the formatted date
             getImagesByDate(formattedDate);
         }
         setSelectedDate(date);
     };
 
     const getImagesByDate = (date) => {
+        // Simulate fetching from a pre-defined list (ideally, this should come from a server)
         const files = [
             "xa.s12.00.mhz.1969-12-16HR00_evid00006",
             "xa.s12.00.mhz.1969-12-16HR00_evid00006",
@@ -149,17 +152,19 @@ const MoonDetails = () => {
             "xa.s15.00.mhz.1974-06-30HR00_evid00542",
             "xa.s15.00.mhz.1974-08-04HR00_evid00557",
             "xa.s15.00.mhz.1975-05-20HR00_evid00653",
-        ];
+        ]; // Replace with actual logic to fetch file names from your directory
 
+        // Filter files based on the formatted date
         const matchingFiles = files.filter(file => file.includes(date));
         console.log("Matching files:", matchingFiles[0]);
 
         if (matchingFiles.length === 0) {
             console.log("No files found for the specified date:", date);
-            setImage("No_Data.png");
+            setImage("No_Data.png"); // Reset image if no files found
             return;
         }
 
+        // Set the image to the first matching file name
         setImage("seismic_data_plot_" +`${matchingFiles[0]}` + ".png");
         console.log(image)
     };
@@ -167,15 +172,14 @@ const MoonDetails = () => {
 
     return (
         <div className="pageContainer">
-            {}
+            {/* Left Section with Description and Calendar */}
             <div className="leftContainer">
-                {}
+                {/* Description Section */}
                 <div className="descriptionContainer">
-                    <h1>
+                    <h1 style={{ marginBottom: "20px" }}>
                         <FontAwesomeIcon icon={faGlobe} /> Moon
                     </h1>
-                    <b> The Moon </b>
-                    <p>
+                    <p style={{ marginBottom: "20px" }}>
                         <FontAwesomeIcon icon={faFileAlt} />
                         The Moon is Earth&apos;s only natural satellite,
                         formed around 4.5 billion years ago, likely
@@ -183,27 +187,26 @@ const MoonDetails = () => {
                         a Mars-sized body, often called Theia. The Moon
                         is roughly one-quarter the size of Earth and
                         has a surface area comparable to the size of Africa.
-                        It orbits Earth at an average distance of about 384,400 km,
-                        and is tidally locked, meaning the same side always faces Earth.
                     </p>
-                    <b> Orbital Speed</b>
-                    <p>
-                        The Moon moves around Earth at an average orbital
-                        speed of 1.022 km/s (or 3,683 km/h), completing one orbit
-                        in about 27.3 days. Its rotational period matches its orbital
-                        period, which is why we only see one side of the Moon from Earth.
-                    </p>
-                    <b> Particularities </b>
-                    <p>
-                        Moonquakes: Seismic activity on the Moon, known as moonquakes, was
+                    <b style={{ marginBottom: "10px", display: "block" }}>Particularities</b>
+                    <p style={{ marginBottom: "20px" }}>
+                        Seismic activity on the Moon, known as moonquakes, was
                         first detected by seismometers placed by the Apollo missions. These
                         quakes are much weaker than earthquakes, but they can last for up to
                         an hour due to the Moon’s lack of water and its rigid structure, which
-                         allows seismic waves to travel longer distances without being absorbed.
+                        allows seismic waves to travel longer distances without being absorbed.                     </p>
+                    <p>
+                        <b>Here are some Moon seismic activity dates detected by NASA:</b>
                     </p>
+                    <ul style={{ marginTop: "10px" }}>
+                        <li>1975-05-20</li>
+                        <li>1970-11-03</li>
+                        <li>1970-01-09</li>
+                    </ul>
                 </div>
 
-                {}
+
+                {/* Calendar Section */}
                 <div className="calendarContainer">
                     <h3 className="label">Select a Date and Time</h3>
                     <DatePicker
@@ -225,7 +228,7 @@ const MoonDetails = () => {
                     )}
                 </div>
             </div>
-            {}
+            {/* Empty Right Section */}
             <div className="rightContainer">
                 <img src={dataDirectory + image} style={{width: "100%", height: "100%"}}></img>
             </div>

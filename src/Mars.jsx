@@ -12,7 +12,7 @@ const MarsPage = () => {
     return (
         <div>
             <div style={{ cursor: "pointer" }}>
-                <img className="gif"src={MyGif} alt="Image of Mars Turning" onClick={handleOnClick}/>
+                <img className="gifMars"src={MyGif} alt="Image of Mars Turning" onClick={handleOnClick}/>
             </div>
         </div>
     );
