@@ -42,7 +42,7 @@ function Home() {
                     ) : (
                         <>
                             <div className="planetName">Mars</div>
-                            <div className="planetSpeed">Orbit Velocity: 86,87 km/h</div>
+                            <div className="planetSpeed">Orbit Velocity: 86,677 km/h</div>
                         </>
                     )}
                 </div>
